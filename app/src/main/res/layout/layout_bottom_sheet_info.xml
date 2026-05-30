@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"> <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="#F8F9FA">
+
+    <ImageView
+        android:id="@+id/btnClose"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:clickable="true"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:tint="#333333" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Thông tin chung"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+</RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Nội quy phòng máy\n\n- Không mang đồ ăn thức uống từ ngoài vào.\n- Giữ gìn vệ sinh chung.\n- Không truy cập trang web cấm.\n\n2. Bảng giá dịch vụ\n\n- Giờ chơi hội viên: 8.000đ/h\n- Giờ chơi khách vãng lai: 10.000đ/h\n- Combo đêm (22h - 6h): 40.000đ\n\n..."
+                android:textColor="#333333"
+                android:textSize="15sp"
+                android:lineSpacingExtra="6dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

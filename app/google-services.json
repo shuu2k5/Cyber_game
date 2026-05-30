@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "438604702346",
+    "firebase_url": "https://cycber-game-default-rtdb.firebaseio.com",
+    "project_id": "cycber-game",
+    "storage_bucket": "cycber-game.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438604702346:android:412c11d0145278bb748373",
+        "android_client_info": {
+          "package_name": "com.example.cyber_game"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6pHF7e2hzRW5UR8535eZSwlRXk38hjLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
