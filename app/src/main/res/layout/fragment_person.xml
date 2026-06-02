@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#010b26"
     android:orientation="vertical">
 
     <!-- Nội dung cuộn -->
@@ -53,7 +54,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:letterSpacing="0.04"
                         android:text="Full name"
-                        android:textColor="@color/text_primary"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -63,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Ranking: "
-                        android:textColor="@color/text_secondary"
+                        android:textColor="@color/white"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -74,7 +75,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border_subtle" />
+                android:background="@color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -97,14 +98,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Đổi mật khẩu"
-                        android:textColor="@color/text_primary"
+                        android:textColor="@color/white"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="›"
-                        android:textColor="@color/text_muted"
+                        android:textColor="@color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -112,9 +113,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/divider" />
-
-                <!-- Face ID / Touch ID -->
+                    android:background="@color/white" />
 
             </LinearLayout>
 
@@ -140,14 +139,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Yêu cầu hỗ trợ"
-                        android:textColor="@color/text_primary"
+                        android:textColor="@color/white"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="›"
-                        android:textColor="@color/text_muted"
+                        android:textColor="@color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -155,7 +154,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/divider" />
+                    android:background="@color/white" />
 
                 <!-- Thông tin chung -->
                 <LinearLayout
@@ -171,14 +170,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Thông tin chung"
-                        android:textColor="@color/text_primary"
+                        android:textColor="@color/white"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="›"
-                        android:textColor="@color/text_muted"
+                        android:textColor="@color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -186,7 +185,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/divider" />
+                    android:background="@color/white" />
 
                 <!-- Đăng xuất -->
                 <LinearLayout
@@ -202,14 +201,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Đăng xuất"
-                        android:textColor="@color/status_offline"
+                        android:textColor="@color/white"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="›"
-                        android:textColor="@color/text_muted"
+                        android:textColor="@color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>

@@ -1,45 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Nền chính -->
-    <color name="bg_deep">#0A0B0F</color>
-    <color name="bg_surface">#111318</color>
-    <color name="bg_card">#16181F</color>
-    <color name="bg_elevated">#1C1F2A</color>
-
-    <!-- Accent tím huyền bí -->
-    <color name="accent_violet">#7C3AED</color>
-    <color name="accent_violet_light">#9D6EFF</color>
-    <color name="accent_violet_dim">#3D1F7A</color>
-
-    <!-- Accent vàng amber -->
-    <color name="accent_amber">#F59E0B</color>
-    <color name="accent_amber_light">#FCD34D</color>
-    <color name="accent_amber_dim">#78460A</color>
-
-    <!-- Trạng thái -->
-    <color name="status_online">#10B981</color>
-    <color name="status_offline">#EF4444</color>
-    <color name="status_online_dim">#064E3B</color>
-    <color name="status_offline_dim">#450A0A</color>
-
-    <!-- Text -->
-    <color name="text_primary">#F0EDFF</color>
-    <color name="text_secondary">#9E9BB0</color>
-    <color name="text_muted">#4B4860</color>
-    <color name="text_amber">#F59E0B</color>
-
-    <!-- Viền -->
-    <color name="border_subtle">#1F2130</color>
-    <color name="border_medium">#2D3048</color>
-    <color name="border_violet">#4C2F8A</color>
-
-    <!-- Divider -->
-    <color name="divider">#1A1B24</color>
-
-    <!-- Overlay -->
-    <color name="overlay_dark">#CC0A0B0F</color>
-
-    <!-- White/transparent -->
-    <color name="white">#FFFFFF</color>
-    <color name="transparent">#00000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>
