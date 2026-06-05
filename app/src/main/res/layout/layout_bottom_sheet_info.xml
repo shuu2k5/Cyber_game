@@ -46,10 +46,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. Nội quy phòng máy\n\n- Không mang đồ ăn thức uống từ ngoài vào.\n- Giữ gìn vệ sinh chung.\n- Không truy cập trang web cấm.\n\n2. Bảng giá dịch vụ\n\n- Giờ chơi hội viên: 8.000đ/h\n- Giờ chơi khách vãng lai: 10.000đ/h\n- Combo đêm (22h - 6h): 40.000đ\n\n..."
+                android:lineSpacingExtra="6dp"
+                android:text="1. Nội quy phòng máy\n\n- Không mang đồ ăn thức uống từ ngoài vào.\n- Giữ gìn vệ sinh chung.\n- Không truy cập trang web cấm.\n\n2. Bảng giá dịch vụ\n\n- Giá hội viên: 5.000VNĐ/h\n- Giá niêm yết: 8.000VNĐ/h\n- Combo sáng/đêm\n (7h - 15h / 22h - 6h): 50.000VNĐ"
                 android:textColor="#333333"
-                android:textSize="15sp"
-                android:lineSpacingExtra="6dp"/>
+                android:textSize="15sp" />
 
         </LinearLayout>
     </ScrollView>
