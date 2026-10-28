@@ -83,7 +83,8 @@ public class fragment_home extends Fragment {
                     .child("userId")
                     .get()
                     .addOnSuccessListener(snapshot -> {
-                        txtUserId.setText("ID: " + snapshot.getValue());
+                        Object id = snapshot.getValue();
+                        txtUserId.setText(id != null ? "ID: " + id : "Quản trị viên");
                     });
 
             FirebaseDatabase.getInstance()
