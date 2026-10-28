@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text="cycber game"
+        android:text="cyber game"
         android:textAllCaps="true"
         android:textColor="#95DDFF"
         android:textSize="35sp"
@@ -257,7 +257,8 @@
         android:layout_margin="10dp"
         android:background="@drawable/khungbottom"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"

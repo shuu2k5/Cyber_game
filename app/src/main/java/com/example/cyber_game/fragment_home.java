@@ -25,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -124,18 +125,12 @@ public class fragment_home extends Fragment{
                                             // Tìm thấy chính xác User đó rồi! Bắt đầu cộng tiền
                                             for (DataSnapshot userSnap : snapshot.getChildren()) {
 
-                                                // 1. Cộng tiền
-                                                long currentBalance = userSnap.hasChild("balance") ? userSnap.child("balance").getValue(Long.class) : 0;
-                                                long newBalance = currentBalance + amountToTopup;
-
-                                                // 2. Quy đổi ra giờ (Tỷ giá: 10.000đ = 60 phút)
+                                                // Quy đổi ra giờ (Tỷ giá: 10.000đ = 60 phút)
                                                 long addedMinutes = (amountToTopup * 60) / 10000;
-                                                long currentMinutes = userSnap.hasChild("remainingMinutes") ? userSnap.child("remainingMinutes").getValue(Long.class) : 0;
-                                                long newMinutes = currentMinutes + addedMinutes;
 
-                                                // 3. Đẩy thông tin mới cập nhật lên Firebase
-                                                userSnap.getRef().child("balance").setValue(newBalance);
-                                                userSnap.getRef().child("remainingMinutes").setValue(newMinutes);
+// Cộng thẳng trên Firebase, không cần đọc giá trị cũ
+                                                userSnap.getRef().child("balance").setValue(ServerValue.increment(amountToTopup));
+                                                userSnap.getRef().child("remainingMinutes").setValue(ServerValue.increment(addedMinutes));
 
                                                 Toast.makeText(getContext(), "Đã nạp " + amountStr + "đ cho ID: " + targetId, Toast.LENGTH_SHORT).show();
 
@@ -220,15 +215,11 @@ public class fragment_home extends Fragment{
                                     myRef.get().addOnSuccessListener(snapUser -> {
                                         if (snapUser.exists()) {
                                             long currentMins = snapUser.hasChild("remainingMinutes") ? snapUser.child("remainingMinutes").getValue(Long.class) : 0;
-                                            long usedMins = snapUser.hasChild("usedMinutes") ? snapUser.child("usedMinutes").getValue(Long.class) : 0;
 
                                             // Nếu còn tiền (còn giờ)
                                             if (currentMins > 0) {
-                                                // Trừ 1 phút thời gian còn lại
-                                                myRef.child("remainingMinutes").setValue(currentMins - 1);
-
-                                                // Cộng 1 phút vào thời gian đã dùng
-                                                myRef.child("usedMinutes").setValue(usedMins + 1);
+                                                myRef.child("remainingMinutes").setValue(ServerValue.increment(-1));
+                                                myRef.child("usedMinutes").setValue(ServerValue.increment(1));
                                             }
                                         }
                                     });
