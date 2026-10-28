@@ -26,8 +26,7 @@
         android:text="ID:  uses"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="15sp"
-        android:visibility="gone" />
+        android:textSize="15sp" />
 
     <TableLayout
         android:id="@+id/layout_admin"
@@ -337,15 +336,6 @@
         android:orientation="vertical"
         android:padding="10dp"
         android:visibility="gone">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ID: id users"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
