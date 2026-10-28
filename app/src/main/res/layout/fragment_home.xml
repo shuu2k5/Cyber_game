@@ -26,7 +26,8 @@
         android:text="ID:  uses"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:visibility="gone" />
 
     <TableLayout
         android:id="@+id/layout_admin"
