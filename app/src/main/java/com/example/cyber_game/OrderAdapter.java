@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
+        holder.btnComplete.setEnabled(true);
         Order currentOrder = orderList.get(position);
 
         // Hiển thị mã đơn (cắt bớt cho đỡ dài) và số tiền
@@ -44,23 +46,22 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         holder.btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                holder.btnComplete.setEnabled(false);   // chống admin bấm 2 lần, cộng giờ 2 lần
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
-                // 1. Đổi trạng thái đơn thành "completed" (Đã hoàn thành)
+// 1. Đánh dấu đơn đã hoàn thành
                 db.child("Orders").child(currentOrder.getOrderId()).child("status").setValue("completed");
 
-                // 2. Lấy Doanh Thu hiện tại, cộng thêm tiền đơn này, rồi lưu lại
-                DatabaseReference revRef = db.child("System").child("Revenue");
-                revRef.get().addOnSuccessListener(snapshot -> {
-                    long currentRevenue = 0;
-                    if (snapshot.exists() && snapshot.getValue() != null) {
-                        currentRevenue = snapshot.getValue(Long.class);
-                    }
-                    // Ghi đè doanh thu mới lên mạng
-                    revRef.setValue(currentRevenue + currentOrder.getTotalPrice());
+// 2. Cộng doanh thu
+                db.child("System").child("Revenue").setValue(ServerValue.increment(currentOrder.getTotalPrice()));
 
-                    Toast.makeText(v.getContext(), "Đã chốt đơn và cộng tiền!", Toast.LENGTH_SHORT).show();
-                });
+// 3. Nếu đơn có gói giờ chơi thì cộng phút cho người đặt
+                if (currentOrder.getUid() != null && currentOrder.getTopupMinutes() > 0) {
+                    db.child("users").child(currentOrder.getUid())
+                            .child("remainingMinutes").setValue(ServerValue.increment(currentOrder.getTopupMinutes()));
+                }
+
+                Toast.makeText(v.getContext(), "Đã duyệt đơn!", Toast.LENGTH_SHORT).show();
             }
         });
     }

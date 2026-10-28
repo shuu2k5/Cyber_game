@@ -191,8 +191,9 @@ public class fragment_home extends Fragment{
                                 public void onDataChange(@NonNull DataSnapshot snap) {
                                     if (snap.exists()) {
                                         // 1.1 Hiển thị Tiền còn lại
-                                        long balance = snap.hasChild("balance") ? snap.child("balance").getValue(Long.class) : 0;
-                                        String formattedBal = String.format("%,d", balance).replace(",", ".");
+                                        long remainMins = snap.hasChild("remainingMinutes") ? snap.child("remainingMinutes").getValue(Long.class) : 0;
+                                        long moneyLeft = remainMins * 10000 / 60;   // 10.000đ = 60 phút
+                                        String formattedBal = String.format("%,d", moneyLeft).replace(",", ".");
                                         if (tvRemainingBalance != null) tvRemainingBalance.setText(formattedBal);
 
                                         // 1.2 Hiển thị Thời gian còn lại

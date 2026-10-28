@@ -5,6 +5,14 @@ public class Order {
     private long totalPrice;
     private String status;
 
+    private String uid;
+    private long topupMinutes;
+
+    public String getUid() { return uid; }
+    public void setUid(String uid) { this.uid = uid; }
+    public long getTopupMinutes() { return topupMinutes; }
+    public void setTopupMinutes(long topupMinutes) { this.topupMinutes = topupMinutes; }
+
     // Hàm rỗng bắt buộc cho Firebase
     public Order() {}
 

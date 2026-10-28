@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -202,6 +203,16 @@ public class fragment_service extends Fragment {
                         orderMap.put("totalPrice", totalCartPrice);
                         orderMap.put("status", "pending");
                         orderMap.put("items", myCart);
+                        // Tính tổng số phút nếu trong giỏ có gói giờ chơi (danh mục "money")
+                        long topupMinutes = 0;
+                        for (product p : myCart) {
+                            if ("money".equals(p.getCategory())) {
+                                long hours = Long.parseLong(p.getName().replaceAll("[^0-9]", ""));   // "2 giờ" -> 2
+                                topupMinutes += hours * 60 * p.getQuantity();
+                            }
+                        }
+                        orderMap.put("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        orderMap.put("topupMinutes", topupMinutes);
 
                         ordersRef.child(orderId).setValue(orderMap).addOnSuccessListener(aVoid -> {
                             for (product p : productList) {
