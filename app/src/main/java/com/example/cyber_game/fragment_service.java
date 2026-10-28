@@ -206,7 +206,7 @@ public class fragment_service extends Fragment {
                         // Tính tổng số phút nếu trong giỏ có gói giờ chơi (danh mục "money")
                         long topupMinutes = 0;
                         for (product p : myCart) {
-                            if ("money".equals(p.getCategory())) {
+                            if ("money".equals(p.getCategory()) || p.getName().contains("giờ")) {
                                 long hours = Long.parseLong(p.getName().replaceAll("[^0-9]", ""));   // "2 giờ" -> 2
                                 topupMinutes += hours * 60 * p.getQuantity();
                             }
@@ -283,8 +283,8 @@ public class fragment_service extends Fragment {
         checkAndAddProduct(new product("Nước Suối Aquafina", "10.000VNĐ", R.drawable.ic_launcher_background, "drink"));
 
         checkAndAddProduct(new product("1 giờ", "8.000VNĐ", R.drawable.ic_launcher_background, "money"));
-        checkAndAddProduct(new product("2 giờ", "12.000VNĐ", R.drawable.ic_launcher_background, "money"));
-        checkAndAddProduct(new product("5 giờ", "30.000VNĐ", R.drawable.ic_launcher_background, "money"));
+        checkAndAddProduct(new product("2 giờ", "16.000VNĐ", R.drawable.ic_launcher_background, "money"));
+        checkAndAddProduct(new product("5 giờ", "40.000VNĐ", R.drawable.ic_launcher_background, "money"));
 
         checkAndAddProduct(new product("Bánh mì + Sting Dâu Đỏ", "35.000VNĐ", R.drawable.ic_launcher_background, "combo"));
         checkAndAddProduct(new product("Combo sáng/tối (8 giờ)", "50.000VNĐ", R.drawable.ic_launcher_background, "combo"));

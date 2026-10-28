@@ -31,7 +31,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class fragment_home extends Fragment{
+public class fragment_home extends Fragment {
+    private static final long PRICE_PER_HOUR = 8000;   // giá chơi: 8.000đ / 60 phút
     private TableLayout layoutAdmin1;
     private LinearLayout layoutUser, layoutAdmin2;
     private EditText edtIDusers, edtTakeMoney;
@@ -126,7 +127,7 @@ public class fragment_home extends Fragment{
                                             for (DataSnapshot userSnap : snapshot.getChildren()) {
 
                                                 // Quy đổi ra giờ (Tỷ giá: 10.000đ = 60 phút)
-                                                long addedMinutes = (amountToTopup * 60) / 10000;
+                                                long addedMinutes = (amountToTopup * 60) / PRICE_PER_HOUR;
 
 // Cộng thẳng trên Firebase, không cần đọc giá trị cũ
                                                 userSnap.getRef().child("balance").setValue(ServerValue.increment(amountToTopup));
@@ -143,7 +144,10 @@ public class fragment_home extends Fragment{
                                             Toast.makeText(getContext(), "Không tìm thấy người chơi có ID: " + targetId, Toast.LENGTH_SHORT).show();
                                         }
                                     }
-                                    @Override public void onCancelled(@NonNull DatabaseError error) {}
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                    }
                                 });
                             });
                             ClickMoney.setOnClickListener(new View.OnClickListener() {
@@ -187,24 +191,30 @@ public class fragment_home extends Fragment{
                                     if (snap.exists()) {
                                         // 1.1 Hiển thị Tiền còn lại
                                         long remainMins = snap.hasChild("remainingMinutes") ? snap.child("remainingMinutes").getValue(Long.class) : 0;
-                                        long moneyLeft = remainMins * 10000 / 60;   // 10.000đ = 60 phút
+                                        long moneyLeft = remainMins * PRICE_PER_HOUR / 60;
                                         String formattedBal = String.format("%,d", moneyLeft).replace(",", ".");
-                                        if (tvRemainingBalance != null) tvRemainingBalance.setText(formattedBal);
+                                        if (tvRemainingBalance != null)
+                                            tvRemainingBalance.setText(formattedBal);
 
                                         // 1.2 Hiển thị Thời gian còn lại
                                         long totalMinutes = snap.hasChild("remainingMinutes") ? snap.child("remainingMinutes").getValue(Long.class) : 0;
                                         long hours = totalMinutes / 60;
                                         long mins = totalMinutes % 60;
-                                        if (tvRemainingTime != null) tvRemainingTime.setText(String.format("%d:%02d", hours, mins));
+                                        if (tvRemainingTime != null)
+                                            tvRemainingTime.setText(String.format("%d:%02d", hours, mins));
 
                                         // 1.3 💥 MỚI: Hiển thị Thời gian đã dùng
                                         long usedTotalMins = snap.hasChild("usedMinutes") ? snap.child("usedMinutes").getValue(Long.class) : 0;
                                         long usedHours = usedTotalMins / 60;
                                         long usedMins = usedTotalMins % 60;
-                                        if (tvUsedTime != null) tvUsedTime.setText(String.format("%d:%02d", usedHours, usedMins));
+                                        if (tvUsedTime != null)
+                                            tvUsedTime.setText(String.format("%d:%02d", usedHours, usedMins));
                                     }
                                 }
-                                @Override public void onCancelled(@NonNull DatabaseError error) {}
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+                                }
                             });
 
                             // 2. KÍCH HOẠT ĐỒNG HỒ (Xử lý cùng lúc 2 biến)
@@ -248,12 +258,14 @@ public class fragment_home extends Fragment{
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         long pendingCount = snapshot.getChildrenCount();
-                        if(tvPendingOrders != null){
+                        if (tvPendingOrders != null) {
                             tvPendingOrders.setText(String.valueOf(pendingCount));
                         }
                     }
+
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {}
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
                 });
     }
 
@@ -273,7 +285,10 @@ public class fragment_home extends Fragment{
                     tvRevenue.setText(formattedRev);
                 }
             }
-            @Override public void onCancelled(@NonNull DatabaseError error) {}
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
         });
     }
 
@@ -312,13 +327,17 @@ public class fragment_home extends Fragment{
                             Toast.makeText(getContext(), "Không còn đơn hàng nào đang chờ!", Toast.LENGTH_SHORT).show();
                         }
                     }
-                    @Override public void onCancelled(@NonNull DatabaseError error) {}
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
                 });
 
                 bottomSheetDialog.show();
             }
         });
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
