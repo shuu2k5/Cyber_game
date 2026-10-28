@@ -5,12 +5,13 @@
 ## Demo
 
 <p align="center">
-  <img src="doc/login.jpg" width="22%" alt="Đăng nhập">
-  <img src="doc/user_home.jpg" width="22%" alt="Trang chủ người chơi">
-  <img src="doc/service.jpg" width="22%" alt="Menu dịch vụ">
-  <img src="doc/person.jpg" width="22%" alt="Trang cá nhân">
+  <img src="doc/login.jpg" width="18%" alt="Đăng nhập">
+  <img src="doc/user_home.jpg" width="18%" alt="Trang chủ người chơi">
+  <img src="doc/service.jpg" width="18%" alt="Menu dịch vụ">
+  <img src="doc/person.jpg" width="18%" alt="Trang cá nhân">
+  <img src="doc/admin_home.jpg" width="18%" alt="Trang chủ quản trị viên">
 </p>
-<p align="center"><em>Đăng nhập · Trang chủ người chơi · Menu dịch vụ · Trang cá nhân</em></p>
+<p align="center"><em>Đăng nhập · Trang chủ người chơi · Menu dịch vụ · Trang cá nhân · Trang chủ quản trị viên</em></p>
 
 ## Tính năng
 
