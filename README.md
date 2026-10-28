@@ -9,6 +9,8 @@
   <img src="doc/user\_home.jpg" width="18%" alt="Trang chủ người chơi">
   <img src="doc/service.jpg" width="18%" alt="Menu dịch vụ">
   <img src="doc/person.jpg" width="18%" alt="Trang cá nhân">
+
+&#x20; <img src="doc/admin-home.jpg" width="18%" alt="Trang chủ quản trị viên">
 </p>
 <p align="center"><em>Đăng nhập · Trang chủ người chơi · Menu dịch vụ · Trang cá nhân · Trang chủ quản trị viên</em></p>
 
